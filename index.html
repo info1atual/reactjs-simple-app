@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8">
+		<title>Meu primeiro aplicativo em React.js</title>
+		<link rel="stylesheet" href="css/style.css">
+		<script src="https://fb.me/react-0.13.3.min.js"></script>
+	    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+	</head>
+
+	<body>
+		<section id="card">
+			
+		</section>
+
+		<script type="text/jsx">
+		var Card = React.createClass({
+
+	            getInitialState : function(){
+	                return {
+	                    logo : "logo-labs.png",
+	                    text : "Nosso primeiro aplicativo com React.js"
+	                }
+	            },
+	            
+	            changeCard : function(){
+	                this.setState({
+	                    logo : "logo-polvo.png",
+	                    text : "You take the red pill, you stay in Wonderland, and I show you how deep the rabbit hole goes."
+	                })
+	            },
+
+	            render : function(){
+	                var image = "./img/"+this.state.logo;
+	                return (
+	                    <article className="Card">
+	                        <img src={image} />
+							<p>{this.state.text}</p>
+							<button onClick={this.changeCard}>Just do it!</button>
+	                    </article>
+	                )
+	            }
+	        })
+	        React.render( <Card/>, document.getElementById('card'))
+		</script>
+	</body>
+</html>
